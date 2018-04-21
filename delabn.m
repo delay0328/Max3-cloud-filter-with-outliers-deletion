@@ -1,16 +1,4 @@
-function [B] = delabn(NDVI,delt)
-%Max3 cloud filter with outliers deletion
-
-%%
-%Max3 cloud filter
-NDVIchang=length(NDVI);
-l=1;
-while l<=NDVIchang-2
-    Yun1(r,s,l)=max([NDVI(r,s,l),NDVI(r,s,l+1),NDVI(r,s,l+2)]);
-    l=l+1;
-end
-
-%%
+function [B] = delabn(A,delt)
 %outliers deletion
 cha=diff(A);
 weizhi=find(cha<=-delt);
